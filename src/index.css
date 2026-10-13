@@ -1,0 +1,191 @@
+:root {
+  --bg: #e8e4de;
+  --surface: #f1eee9;
+  --text: #3b3834;
+  --muted: #8a857d;
+  --accent: #7d9181;
+  --accent-dark: #67796b;
+  --danger: #b0766c;
+  --shadow-dark: #cdc8c0;
+  --shadow-light: #fbf9f6;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px 20px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.app {
+  width: 100%;
+  max-width: 520px;
+  padding: 36px 32px;
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: 12px 12px 28px var(--shadow-dark),
+    -10px -10px 24px var(--shadow-light);
+}
+
+.app__header {
+  margin-bottom: 28px;
+}
+
+.app__header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.app__header p {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Formulario */
+.task-form {
+  margin-bottom: 28px;
+}
+
+.task-form__row {
+  display: flex;
+  gap: 12px;
+}
+
+.task-form input[type="text"] {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.task-form input[type="text"]::placeholder {
+  color: var(--muted);
+}
+
+.task-form input[type="text"]:focus {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light), 0 0 0 2px var(--accent);
+}
+
+.task-form button {
+  padding: 0 22px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #f6f4f0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px var(--shadow-dark),
+    -4px -4px 8px var(--shadow-light);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.task-form button:hover {
+  background: var(--accent-dark);
+}
+
+.task-form button:active {
+  transform: translateY(1px);
+}
+
+.task-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.task-form__error {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+/* Lista */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.task-list__empty {
+  padding: 24px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Item */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 5px 5px 10px var(--shadow-dark),
+    -5px -5px 10px var(--shadow-light);
+  transition: opacity 0.2s;
+}
+
+.task-item__label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.task-item__label input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.task-item--done {
+  opacity: 0.55;
+}
+
+.task-item--done span {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-item__delete {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color 0.2s, box-shadow 0.2s;
+}
+
+.task-item__delete:hover {
+  color: var(--danger);
+  box-shadow: inset 2px 2px 4px var(--shadow-dark),
+    inset -2px -2px 4px var(--shadow-light);
+}
